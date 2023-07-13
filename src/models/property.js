@@ -37,6 +37,13 @@ const propertySchema = new mongoose.Schema(
 		listed_by: {
 			type: String,
 		},
+		plots_available:{
+			type:Number
+		},
+		views:{
+			type:Number,
+			default:0
+		},
 		extra_field: {
 			type: Object,
 		}
