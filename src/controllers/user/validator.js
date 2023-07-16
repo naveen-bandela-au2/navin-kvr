@@ -8,6 +8,7 @@ const updateUserValidation = async (req, res, next) => {
 		last_name: Joi.string().optional(),
 		phone_number: Joi.string().optional(),
 		avatar: Joi.string().optional(),
+		region:Joi.string().optional(),
 		email:Joi.string().required()
 	});
 	const { error } = validatorSchema.validate(req.body);

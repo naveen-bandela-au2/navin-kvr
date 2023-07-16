@@ -5,7 +5,7 @@ const {bookProperty} = require("../controllers/leads/validator");
 const { createProperty,updateProperty,deleteProperty,getByPropertyType,getAllProperties, updatePropertyViews } = require("../controllers/property");
 
 const {addFavValidation} = require("../controllers/fav/validator");
-const { addToFav,getAllFav } = require("../controllers/fav");
+const { addToFav,getAllFav, deleteFromFav } = require("../controllers/fav");
 const { create_lead,getLeads } = require("../controllers/leads");
 const { sendOTP,reSendOTP,verifyOTP,updateUser,getUser,getAllUser } = require("../controllers/user");
 const  upload  = require("../controllers/upload");
@@ -43,6 +43,7 @@ router.post("/get-user",getUser)
 router.get("/get-all-user",getAllUser)  
 
 router.post("/add-to-fav",addFavValidation,addToFav)
+router.delete("/delete-from-fav",addFavValidation,deleteFromFav)
 router.post("/get-all-fav",getAllFav)
 
 router.post("/book-property",bookProperty,create_lead)

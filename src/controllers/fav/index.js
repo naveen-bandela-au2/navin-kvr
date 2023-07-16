@@ -7,7 +7,6 @@ var ObjectID = require('mongodb').ObjectID;
 const addToFav = async (req, res, next) => {
 	try {
        const is_existing = await FavsModel.findOne({...req.body})
-console.log(is_existing)
 if(!is_existing)
 {
 		const newProperty = await FavsModel.create({...req.body});
@@ -28,6 +27,20 @@ if(!is_existing)
 	} catch (error) {
 		res.status(400);
 		return res.json(errorFunction(true, error+"Error while adding property to favs"));
+	}
+};
+
+const deleteFromFav = async (req, res, next) => {
+	try {
+       const remove = await FavsModel.deleteOne({...req.body})
+	   res.status(201);
+			return res.json(
+				errorFunction(false, "Property deleted from favs successfully", newProperty)
+			);
+
+	} catch (error) {
+		res.status(400);
+		return res.json(errorFunction(true, error+"Error while deleting property from favs"));
 	}
 };
 
@@ -55,5 +68,6 @@ const getAllFav = async (req, res, next) => {
 
 module.exports = {
 	addToFav,
-    getAllFav
+    getAllFav,
+	deleteFromFav
 };

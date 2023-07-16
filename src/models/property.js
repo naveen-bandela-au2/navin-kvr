@@ -37,6 +37,10 @@ const propertySchema = new mongoose.Schema(
 		listed_by: {
 			type: String,
 		},
+		brochure: {
+			type: String,
+			default:""
+		},
 		plots_available:{
 			type:Number
 		},

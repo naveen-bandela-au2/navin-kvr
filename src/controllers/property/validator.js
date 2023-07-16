@@ -33,6 +33,7 @@ const propertyValidation = async (req, res, next) => {
 		listed_by: Joi.string().optional(),
 		extra_field: Joi.object().optional(),
 		plots_available: Joi.number().optional(),
+		brochure:Joi.string().optional(),
 		views: Joi.number().optional(),
 	});
 	const { error } = validatorSchema.validate(req.body);
@@ -61,6 +62,7 @@ const updatepropertyValidation = async (req, res, next) => {
 		video: Joi.string().optional(),
 		gallery: Joi.array().optional(),
 		listed_by: Joi.string().optional(),
+		brochure:Joi.string().optional(),
 		extra_field: Joi.object().optional(),
 		plots_available: Joi.number().optional(),
 		views: Joi.number().optional(),
