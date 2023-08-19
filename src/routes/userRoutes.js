@@ -10,6 +10,7 @@ const { create_lead,getLeads } = require("../controllers/leads");
 const { sendOTP,reSendOTP,verifyOTP,updateUser,getUser,getAllUser } = require("../controllers/user");
 const  upload  = require("../controllers/upload");
 const defaultController = require("../controllers/defaultController");
+const { addBanner, getAllBanners } = require("../controllers/banners");
 
 const router = express.Router();
 
@@ -49,4 +50,12 @@ router.post("/get-all-fav",getAllFav)
 router.post("/book-property",bookProperty,create_lead)
 
 router.get("/book-property",getLeads)
+
+
+router.post("/update-banner/:id",addBanner)
+
+router.get("/get-banners",getAllBanners)
+
+
+
 module.exports = router;
