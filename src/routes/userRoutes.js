@@ -10,7 +10,7 @@ const { create_lead,getLeads } = require("../controllers/leads");
 const { sendOTP,reSendOTP,verifyOTP,updateUser,getUser,getAllUser } = require("../controllers/user");
 const  upload  = require("../controllers/upload");
 const defaultController = require("../controllers/defaultController");
-const { addBanner, getAllBanners } = require("../controllers/banners");
+const { addBanner, getAllBanners,deleteBanner } = require("../controllers/banners");
 
 const router = express.Router();
 
@@ -53,6 +53,7 @@ router.get("/book-property",getLeads)
 
 
 router.post("/update-banner/:id",addBanner)
+router.delete("/delete-banner/:id",deleteBanner)
 
 router.get("/get-banners",getAllBanners)
 
