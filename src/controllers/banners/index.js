@@ -27,7 +27,25 @@ const getAllBanners = async (req, res, next) => {
 	}
 };
 
+
+const deleteBanner = async (req, res, next) => {
+    try {
+        // Assuming BannerModel is your Mongoose model for banners
+        const result = await BannerModel.findOneAndDelete({ idx: req.params.id });
+
+        if (result) {
+            return res.json(errorFunction(false, "Banner deleted successfully", result));
+        } else {
+            return res.json(errorFunction(true, "Banner not found"));
+        }
+    } catch (error) {
+        res.status(400);
+        return res.json(errorFunction(true, error + "Error while deleting banner"));
+    }
+};
+
 module.exports = {
 	addBanner,
-    getAllBanners
+    getAllBanners,
+    deleteBanner
 };
