@@ -103,7 +103,7 @@ const upload = multer({
               s3Client.send(completeUploadCommand).then(() => cb(null, true)).catch(cb);
             } else {
               // Continue uploading parts
-              uploadPart(;
+              uploadPart();
             }
           }).catch(cb);
         }
