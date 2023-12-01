@@ -9,7 +9,8 @@ const s3Client = new S3Client({
   credentials: {
     accessKeyId: process.env.accessKeyId,
   secretAccessKey: process.env.secretAccessKey,
-  }
+  },
+ maxBodyLength: Infinity, 
 });
 
 const upload = multer({
