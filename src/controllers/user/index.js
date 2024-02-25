@@ -133,6 +133,22 @@ const getAllUser = async (req, res, next) => {
 	}
 };
 
+const deleteUser = async (req, res, next) => {
+    const { email } = req.body;
+
+    try {
+        const deletedUser = await UserModel.findOneAndDelete({ email });
+
+        if (!deletedUser) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        return res.json({ message: "User deleted successfully", deletedUser });
+    } catch (error) {
+        return res.status(500).json({ error: "Error while deleting user" });
+    }
+};
+
 
 
 module.exports = {
@@ -141,5 +157,6 @@ module.exports = {
     verifyOTP,
     updateUser,
     getUser,
-    getAllUser
+    getAllUser,
+    deleteUser
 };
