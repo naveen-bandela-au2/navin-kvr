@@ -7,7 +7,7 @@ const { createProperty,updateProperty,deleteProperty,getByPropertyType,getAllPro
 const {addFavValidation} = require("../controllers/fav/validator");
 const { addToFav,getAllFav, deleteFromFav } = require("../controllers/fav");
 const { create_lead,getLeads } = require("../controllers/leads");
-const { sendOTP,reSendOTP,verifyOTP,updateUser,getUser,getAllUser } = require("../controllers/user");
+const { sendOTP,reSendOTP,verifyOTP,updateUser,getUser,getAllUser, deleteUser} = require("../controllers/user");
 const  upload  = require("../controllers/upload");
 const defaultController = require("../controllers/defaultController");
 const { addBanner, getAllBanners,deleteBanner } = require("../controllers/banners");
@@ -40,6 +40,7 @@ router.post("/send-otp", sendOTP);
 router.post("/re-send-otp", reSendOTP);
 router.post("/verify-otp", verifyOTP);
 router.patch("/update-user",updateUserValidation,updateUser)  
+router.delete("/delete-user",deleteUser)
 router.post("/get-user",getUser)  
 router.get("/get-all-user",getAllUser)  
 
